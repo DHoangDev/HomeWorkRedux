@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
 
-import "./Buble.css";
-import "./BaiTapBookingTicket.css";
-
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Navbar from './Navbar/Navbar'
 import Home from './Components/Home'
@@ -15,7 +12,7 @@ export default class App extends Component {
       <div>
         <BrowserRouter>
           <Navbar />
-          <div className="container-md">
+          <div>
             <Switch>
               <Route exact path="/Home" component={Home} />
               <Route exact path="/BookingTicket" component={BookingTicket} />
