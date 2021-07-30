@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
 
-export default class SeatInfo extends Component {
+import { connect } from 'react-redux'
+
+class SeatInfo extends Component {
+    renderArrayGhe = () => {
+
+    }
+
     render() {
         return (
             <div className="px-5">
@@ -22,14 +28,26 @@ export default class SeatInfo extends Component {
                             </tr>
                         </thead>
                         <tbody className="text-warning">
-
+                            <tr>
+                                {console.log(this.renderArrayGhe())}
+                            </tr>
+                            <tr className="text-light" style={{ fontSize: '24px' }}>
+                                <td>Tổng Tiền</td>
+                                <td>Result</td>
+                                <td></td>
+                            </tr>
                         </tbody>
-                        <tfoot>
-
-                        </tfoot>
                     </table>
                 </div>
             </div>
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        danhSachGheBanDau: state.stateBookingTicket.danhSachGhe
+    }
+}
+
+export default connect(mapStateToProps)(SeatInfo);

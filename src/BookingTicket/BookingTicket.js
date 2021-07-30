@@ -2,21 +2,10 @@ import React, { Component } from 'react'
 
 import './BaiTapBookingTicket.css'
 
-import dataDanhSachGhe from '../Data/danhSachGhe.json'
 import SeatList from './SeatList'
 import SeatInfo from './SeatInfo'
 
 export default class BookingTicket extends Component {
-
-    renderHangGhe = () => {
-        return dataDanhSachGhe.map((hangGhe, index) => {
-            return <div key={index}>
-                <SeatList hangGhe={hangGhe} soHangGhe={index} />
-            </div>
-
-        })
-    }
-
     render() {
         return (
             <div className="bookingMovie" style={{ position: "fixed", width: '100%', height: '100%', backgroundImage: "url('./video27_dat_ve_phim/bgmovie.jpg')", backgroundSize: '100%' }}>
@@ -34,7 +23,7 @@ export default class BookingTicket extends Component {
                                     <div className="col-12">
                                         <div className="mt-2 d-flex flex-column px-5">
                                             <div className="screen"></div>
-                                            {this.renderHangGhe()}
+                                            <SeatList />
                                         </div>
                                     </div>
                                 </div>

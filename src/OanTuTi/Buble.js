@@ -46,20 +46,16 @@ const mapDispatchToProps = (dispatch) => {
             let ranDomComputerItem = setInterval(() => {
                 dispatch({
                     type: 'RAN_DOM'
-
                 })
                 count++;
                 if (count > 10) {
                     //dừng setInterval      
                     clearInterval(ranDomComputerItem);
-
                     dispatch({
                         type: 'END_GAME',
                     })
-
                 }
             }, 100)
-
         }
     }
 }

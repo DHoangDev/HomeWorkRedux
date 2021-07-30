@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 
-export default class Result extends Component {
+import { connect } from "react-redux"
+
+class Result extends Component {
     render() {
         return (
             <div>
-                <div className="display-4 text-warning">{this.props.ketQua}</div>
+                <div className="display-4 text-warning">{this.props.result}</div>
                 <div className="display-4 text-success">Số Lượt Thắng: <span className="text-warning">
                     {this.props.soBanThang}</span></div>
                 <div className="display-4 text-success">Tổng số bàn chơi: <span className="text-warning">
@@ -13,3 +15,11 @@ export default class Result extends Component {
         )
     }
 }
+const mapStateToProps = (state) => {
+    return {
+        result: state.stateBuble.result,
+        soBanThang: state.stateBuble.soBanThang,
+        soBanChoi: state.stateBuble.soBanChoi,
+    }
+}
+export default connect(mapStateToProps)(Result)

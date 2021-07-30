@@ -12,7 +12,6 @@ class Player extends Component {
             if (ele.datCuoc) {
                 border = { border: '3px solid orange' };
             }
-
             return <div className="col-4" key={index}>
                 <button onClick={() => {
                     this.props.datCuoc(ele.ma)
@@ -41,7 +40,7 @@ class Player extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        datCuocArray: state.BaiTapOanTuXiReducer.datCuocArray,
+        datCuocArray: state.stateBuble.datCuocArray,
     }
 }
 const mapDispatchToProps = (dispatch) => {
