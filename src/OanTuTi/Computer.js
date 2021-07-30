@@ -20,7 +20,7 @@ class Computer extends Component {
                 <style>
                     {keyFrame}
                 </style>
-                <div className="select" style={{ position: 'relative' }}>
+                <div className="select" style={{ position: 'relative', left: '180px' }}>
                     <img style={{ transform: 'rotate(180deg)', left: '30%', position: 'absolute', animation: `randomItem${Date.now()} 0.5s` }} className="mt-4" width={70} src={this.props.computer.hinhAnh} alt="..." />
                 </div>
                 <div className="speech-bubble"></div>
