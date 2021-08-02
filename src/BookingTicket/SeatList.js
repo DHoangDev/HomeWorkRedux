@@ -20,12 +20,6 @@ class SeatList extends Component {
                 )
             }
             else {
-                // //ghế đang đặt
-                // let cssGheDangDat = '';
-                // let indexGheDangDat = this.props.danhSachGheDangDat.findIndex(gheDangDat => gheDangDat.soGhe === ghe.soGhe);
-                // if (indexGheDangDat !== -1) {
-                //     cssGheDangDat = 'gheDangChon';
-                // }
                 return (
                     <div key={index} className="d-flex align-items-center mb-3">
                         <div className="d-flex align-items-center">
@@ -39,7 +33,7 @@ class SeatList extends Component {
                                     if (ele.daDat) {
                                         let cssGheDaDat = 'gheDuocChon'
                                         return (
-                                            <button onClick={() => { this.props.datGhe(ele.soGhe) }}
+                                            <button
                                                 className={`ghe ${cssGheDaDat} ms-2 me-3`}
                                                 key={index}>
                                                 {ele.soGhe}
@@ -48,9 +42,15 @@ class SeatList extends Component {
                                     }
                                     else {
                                         let cssGheDaDat = '';
+                                        //ghế đang đặt
+                                        let cssGheDangDat = '';
+                                        let indexGheDangDat = this.props.danhSachGheDangDat.findIndex(gheDangDat => gheDangDat.ghe === ele.soGhe);
+                                        if (indexGheDangDat !== -1) {
+                                            cssGheDangDat = 'gheDangChon';
+                                        }
                                         return (
-                                            <button onClick={() => { this.props.datGhe(ele.soGhe) }}
-                                                className={`ghe ${cssGheDaDat} ms-2 me-3`}
+                                            <button onClick={() => { this.props.datGhe(ele.soGhe, ele.gia) }}
+                                                className={`ghe ${cssGheDaDat} ${cssGheDangDat} ms-2 me-3`}
                                                 key={index}>
                                                 {ele.soGhe}
                                             </button>
@@ -64,19 +64,10 @@ class SeatList extends Component {
             }
         })
     }
-
-    renderHangGhe = () => {
-        return (
-            <div>
-                {this.renderSoCot()}
-            </div>
-        )
-    }
-
     render() {
         return (
             <div className="text-light text-left ml-5 mt-3" style={{ fontSize: '30px' }}>
-                {this.renderHangGhe()}
+                {this.renderSoCot()}
             </div>
         )
     }
@@ -84,14 +75,19 @@ class SeatList extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        danhSachGheBanDau: state.stateBookingTicket.danhSachGhe
+        danhSachGheBanDau: state.stateBookingTicket.danhSachGhe,
+        danhSachGheDangDat: state.stateBookingTicket.danhSachGheDangDat
     }
 }
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//         datGhe: (ghe) => {
-//             dispatch(datGheAction(ghe));
-//         }
-//     }
-// }
-export default connect(mapStateToProps)(SeatList);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        datGhe: (ghe, gia) => {
+            dispatch({
+                type: 'DAT_GHE',
+                ghe: ghe,
+                gia: gia,
+            });
+        }
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(SeatList);

@@ -4,7 +4,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Navbar from './Navbar/Navbar'
 import Home from './user-management-html/index'
 import BookingTicket from './BookingTicket/BookingTicket'
-import Buble from "./OanTuTi/Buble"
+import Buble from './OanTuTi/Buble'
+import DashBoard from "./Components/DashBoard"
 
 export default class App extends Component {
   render() {
@@ -18,6 +19,7 @@ export default class App extends Component {
               <Route exact path="/Home" component={Home} />
               <Route exact path="/BookingTicket" component={BookingTicket} />
               <Route exact path="/Buble" component={Buble} />
+              <Route exact path="/DashBoard" component={DashBoard} />
             </Switch>
           </div>
         </BrowserRouter>

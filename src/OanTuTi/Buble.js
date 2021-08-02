@@ -60,4 +60,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(Buble)
+export default connect(null, mapDispatchToProps)(Buble);

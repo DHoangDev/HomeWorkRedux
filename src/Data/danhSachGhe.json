@@ -258,7 +258,7 @@
       {
         "soGhe": "D2",
         "gia": 75000,
-        "daDat": false
+        "daDat": true
       },
       {
         "soGhe": "D3",
@@ -268,7 +268,7 @@
       {
         "soGhe": "D4",
         "gia": 75000,
-        "daDat": false
+        "daDat": true
       },
       {
         "soGhe": "D5",
@@ -298,12 +298,12 @@
       {
         "soGhe": "D10",
         "gia": 75000,
-        "daDat": false
+        "daDat": true
       },
       {
         "soGhe": "D11",
         "gia": 75000,
-        "daDat": false
+        "daDat": true
       },
       {
         "soGhe": "D12",
